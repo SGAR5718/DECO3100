@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- plotly.js into the DOM -->
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <!-- d3 into the DOM -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <meta name="viewport"content="with=device-width,initial scale=1.0">
+    <title>Air Pollution: Delhi India</title>
+    <link rel="stylesheet"href="style.css">
+    <link rel="preconnect"href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>   
+    
+<header>
+    <section class="header">
+    
+     <div class="text-box">
+     <h1>Air pollution in Delhi, India before and during lockdown</h1>
+     <p>Is annual lockdown the solution to control air pollution in Delhi?</p>
+     <br>
+     <a href="" class="hero-btn"> Read More </a>
+                                                                                        
+</div>
+       
+   </section>
+</header>
+    
+ <section class="article w3-padding-large w3-container" id="article">
+      <div class="content container w3-round-large">
+        <h2 style="text-align: center;"> Air pollution is an energy problem - and a challenge around the world. 
+            <br>Read further to see air pollution trends in Delhi before and during lockdown. </h2>
+          <br>
+           <p style="text-align: center;"> Air pollution is considered one of the biggest threats to global health. It is estimated that around 4.2 million people die annually due to its effects One in every nine deaths is connected to poor indoor or outdoor air quality, making it one of the world's most serious environmental threats to human health. According to the World Health Organization (WHO), 92% of the world's population lives in areas where local air pollution levels exceed WHO guidelines. </p>
+          
+<div id="myDiv" align="center" style="width: 990px; height: 440px;"></div>
+
+<script>
+    
+function makeplot() {
+Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv", function(data){ processData(data) } );
+};
+  
+function processData(allRows) {
+
+  console.log(allRows);
+  var x = [], y = [], standard_deviation = [];
+
+  for (var i=0; i<allRows.length; i++) {
+    row = allRows[i];
+    x.push( row['AAPL_x'] );
+    y.push( row['AAPL_y'] );
+  }
+  console.log( 'X',x, 'Y',y, 'SD',standard_deviation );
+  makePlotly( x, y, standard_deviation );
+}
+
+function makePlotly( x, y, standard_deviation ){
+  var plotDiv = document.getElementById("plot");
+  var traces = [{
+    x: x, 
+    y: y
+  }];
+
+  Plotly.newPlot('myDiv', traces, 
+    {title: 'Plotting CSV data from AJAX call'});
+};
+  makeplot();
+
+</script>
+
+   <!-- <section class="article w3-padding-large w3-container" id="article"> -->
+     <!-- <div class="content container w3-round-large">-->
+           <p style="text-align: center;"> In India, the country's first case of COVID-19 was reported on January 30, 2020. Following this incident, a nationwide lockdown was implemented from March to May that year. The restrictions were mainly focused on areas with high levels of infection. Due to the emergence of the coronavirus pandemic, which has caused severe restrictions on movement, governments have taken various measures to prevent the spread of the disease.</p>
+           <br>
+           <p style="text-align: center;">Delhi has long been regarded as one of the most polluted cities in the world. The Delhigovernment announced a health emergency in November 2019 after the city reported a <b>PM2.5 concentration of 585 microgram per cubic metre (μg/m3) of air</b>, well beyond theWorld Health Organization's acceptable guidelines (WHO).
+      <br>
+          <br>
+            Lung cancer, cardiovascular disease, respiratory sickness, and infertility have all been related toexposure to such high amounts of air pollution. <b>Air pollution causes 1.24 million deaths peryear in India</b>, accounting for 12.5 percent of all deaths, with 0.67 million deaths due to ambientparticulate matter pollution and 0.48 million deaths due to household air pollution.
+            <br>
+            <!-- graph -->
+            <br>
+            Although the lockdown affected various sectors of the economy, it has also helped in reducing theemissions of harmful air pollutants from various parts of the country. There has been a significantdecrease in main pollutant emissions across India.
+              <br>
+              <br>
+              The national lockdown's first three phases, which began on March 25, resulted in significant reductionsin air pollution in Delhi. <b>PM 10--airborne particulate matter less than 10 micrometres in diameter orseven times finer than human hair—concentration declined to 71.7μg/m3 in April 2020</b>, less thanhalf the concentration seen in the same month the previous three years.
+              <br>
+              <!-- graph -->
+              <br>
+              The concentration of <b>PM 10 rose to 191 μg/m3 during the fourth phase of the lockdown</b>, which expanded exemptions and permitted interstate movement starting May 16.
+              <br>
+              <!-- graph -->
+              <br>
+              PM 2.5, a four-times-finer particulate matter capable of entering deep into the respiratorysystem, has followed a similar path. In the first 3 stages of the lockdown, it was <b>31% lowerthan average levels, at 110.1μg/m3</b>.During the fourth and fifth stages, it reached 238.2μg/m3, indicating "extremely unhealthy" levels according to the AQI.
+              <br>
+              <!-- graph -->
+              <br>
+                Furthermore, nitrogen dioxide is a major air pollution produced by the energy sector. This gas is produced when fossil fuels are burned (for example, in cars or power plants), and it contributes to ground-level ozone and fine particulate matter air pollution. The reduction in pollutants is related to the cessation of their source activities, not tofundamental economic changes. Construction, industry, and traffic, all of which came to astandstill during the lockdown, are the sources of particulate matter in Delhi. <b>Nitrogen dioxide (NO2) emissions, which have fallen since the start of lockdowncompared to previous years, are driven by transportation.</b>
+              <br>
+              <!-- graph -->
+              <br>
+              <b>Sulphur dioxide (SO2), carbon monoxide (CO), and ground-level ozone (O3)concentrations</b>, on the other hand, have been consistent with past years. SO2 emissionsin Delhi are linked to coal-fired power facilities that have remained operational. CO is abyproduct of incomplete fuel combustion that lasts a long period in the environment.When nitrous oxides such as NO2, which are released by transportation-related sources,are exposed to sunlight, O3, a secondary pollutant, is created.
+              <br>
+              <!-- graph -->
+              <br>
+              Air pollution levels are still lower than those seen in Delhi at this time ofyear, despite the fact that they are slowly rising. PM 10, PM 2.5, and NO2 concentrations in June 2020 are 46.4 percent, 20.5 percent, and 48percent lower than the average for the years 2017-19. Due to relaxed restrictions on human activity, air pollution was recorded inthe later period of lockdown and unlock (industrial and transport).</p>
+              <br>
+            
+           <h1 style="text-align: center;">Political Perspective</h1>
+
+              <p style="text-align: center;">The lockdown has formed a one-of-a-kind situation by providing the city with a glimpseinto the future of clean air. "After a long period, the city has seen blue skies as a whole,"Roychowdhury remarked. She hopes that by doing so, people will be more invested inkeeping the benefits of the lockdown.
+               Air pollution has just lately become a political hot topic in Delhi. According to DishaSharma, a postdoctoral researcher at Princeton University, the general population doesnot correlate air pollution with health hazards. "During the years of horrible pollution,people didn't wear masks; it took something as serious as COVID-19 to trigger thisreaction," she added.</p>
+              <br>
+            <h1 style="text-align: center;">Is lockdown the solution to reduce air pollution in Delhi?</h1>
+
+              <p style="text-align: center;">A lockdown makes more sense as a preventative precaution than as a lastresort when the situation has already spiralled out of control. An action planthat is implemented throughout the year is urgently required. Constructionactivities must be halted, vehicular traffic must be calibrated using the odd-even technique, and cracker bans must be properly enforced far ahead of theholiday season. All of these actions must be applied in concert rather than inisolation.</p>
+              <br>
+              <h1 style="text-align: center;">Ways citizens and govt can help reduce air pollution in Delhi</h1>
+
+              <p style="text-align: center;">Citizens should opt for more fuel-efficient and smaller cars that can run on CNGas an alternate fuel. Better maintenance of roads to complexes should also beimproved. Solar panels should be installed at homes and commercialestablishments to generate decentralized power. The transport departmentshould encourage shared taxi services by developing a taxi sharing website.Burning of leaves, old tyres or any items in the open should be made apunishable offence with a fine.</p>
+          <br>
+          <br>
+          <br>
+          
+    </div>     
+</section>
+</body>
+</html>
